@@ -7,15 +7,15 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <>
+    <div className="bg-gray-50 text-gray-800">
       <Header />
-      <main className="container mx-auto px-4 py-8">
+      <main>
         <Hero />
         <Portfolio />
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
