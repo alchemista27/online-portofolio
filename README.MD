@@ -21,6 +21,33 @@ Saya Septian Jauhariansyah, seorang Data Scientist, AI Educator, dan Web Develop
 - [LinkedIn](https://www.linkedin.com/in/aku-septian)
 
 ## 📁 Struktur Folder
+online-portfolio/
+├── index.html                  # File HTML utama (dipindahkan dari public/)
+├── package.json                # Konfigurasi npm
+├── README.md                   # Dokumentasi proyek
+├── .gitignore                  # File Git untuk pengecualian file
+├── postcss.config.js           # Konfigurasi PostCSS
+├── tailwind.config.js          # Konfigurasi Tailwind CSS
+├── vite.config.js              # Konfigurasi Vite
+│
+├── src/
+│   ├── App.jsx                 # Komponen utama
+│   ├── main.jsx                # Entry point React
+│   ├── index.css               # Global stylesheet
+│   │
+│   ├── assets/
+│   │   └── profile.jpg         # Foto profil
+│   │
+│   ├── components/
+│   │   ├── Header.jsx          # Navigasi
+│   │   ├── Hero.jsx            # Profil singkat
+│   │   ├── Portfolio.jsx       # Daftar proyek
+│   │   ├── Contact.jsx         # Form kontak
+│   │   └── Footer.jsx          # Footer
+│   │
+│   └── data/
+│       └── projects.js         # Data proyek
+
 ## 🚀 Deploy
 
 Website ini dirancang agar mudah di-deploy ke **Netlify**.
