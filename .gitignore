@@ -26,4 +26,4 @@ dist-ssr
 /src/generated/prisma
 
 db-password.txt
-node_modules/
+.env
