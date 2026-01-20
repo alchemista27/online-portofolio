@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+}
+
+// Enum untuk standarisasi status
+enum OrderStatus {
+  PENDING
+  PAID
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum ItemType {
+  SERVICE
+  PRODUCT
+}
+
+model Item {
+  id          String   @id @default(uuid())
+  type        ItemType
+  title       String
+  description String
+  price       Decimal  @db.Decimal(10, 2)
+  imageUrl    String?
+  orders      Order[]
+  createdAt   DateTime @default(now())
+}
+
+model Order {
+  id              String      @id @default(uuid())
+  customerName    String
+  customerContact String      // Email atau WA
+  itemId          String
+  item            Item        @relation(fields: [itemId], references: [id])
+  
+  totalPrice      Decimal     @db.Decimal(10, 2)
+  dpPercentage    Int         // Validasi logic di App: Min 30
+  dpAmount        Decimal     @db.Decimal(10, 2)
+  remainingAmount Decimal     @db.Decimal(10, 2)
+  
+  paymentMethod   String      // "QRIS" | "TRANSFER"
+  paymentProof    String?     // URL Gambar
+  status          OrderStatus @default(PENDING)
+  
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model Portfolio {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  imageUrl    String?
+  category    String?  // "Jasa" atau "Produk"
+  completedAt DateTime @default(now())
+}
